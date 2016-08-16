@@ -687,11 +687,11 @@ F 3 "" H 9750 4150 60  0000 C CNN
 	1    9750 4150
 	1    0    0    -1  
 $EndComp
-Text Label 8150 2100 0    60   ~ 0
+Text Label 8150 1800 0    60   ~ 0
 DIM1
 Text Label 8150 2400 0    60   ~ 0
 DIM2
-Text Label 8150 1800 0    60   ~ 0
+Text Label 8150 2100 0    60   ~ 0
 DIM3
 Text Label 8150 2000 0    60   ~ 0
 DIM4
@@ -757,9 +757,9 @@ F 3 "" H 9900 4200 50  0000 C CNN
 	1    9900 4200
 	1    0    0    -1  
 $EndComp
-Text Label 9100 4350 0    60   ~ 0
+Text Label 9250 4600 0    60   ~ 0
 T0
-Text Label 9700 4350 0    60   ~ 0
+Text Label 9850 4600 0    60   ~ 0
 T1
 Text Label 8150 2200 0    60   ~ 0
 T0
@@ -1152,15 +1152,15 @@ F 3 "" H 2850 3350 50  0000 C CNN
 $EndComp
 Text Label 2650 3050 0    60   ~ 0
 DIM1
-Text Label 3550 3050 0    60   ~ 0
-DIM2
-Text Label 2650 2950 0    60   ~ 0
-DIM3
-Text Label 3550 2950 0    60   ~ 0
-DIM4
-Text Label 2650 3150 0    60   ~ 0
-DIM5
 Text Label 3550 3150 0    60   ~ 0
+DIM2
+Text Label 2650 3150 0    60   ~ 0
+DIM3
+Text Label 3550 3050 0    60   ~ 0
+DIM4
+Text Label 2650 3250 0    60   ~ 0
+DIM5
+Text Label 3550 3250 0    60   ~ 0
 DIM6
 Wire Wire Line
 	8150 2700 9275 2700
@@ -1425,9 +1425,9 @@ Wire Wire Line
 Wire Wire Line
 	9300 4200 9200 4200
 Wire Wire Line
-	9100 4200 9100 4350
+	9100 4200 9100 4600
 Wire Wire Line
-	9700 4200 9700 4350
+	9700 4200 9700 4600
 Wire Wire Line
 	6700 4050 7150 4050
 Connection ~ 6850 4050
@@ -1521,91 +1521,13 @@ Wire Wire Line
 	3450 2950 3550 2950
 Wire Wire Line
 	3450 3050 3550 3050
-$Comp
-L DS18B20 U12
-U 1 1 57960A23
-P 10250 4150
-F 0 "U12" H 10100 4750 60  0000 C CNN
-F 1 "DS18B20" H 10250 4650 60  0000 C CNN
-F 2 "TO_SOT_Packages_THT:TO-92_Inline_Narrow_Oval" H 10250 4150 60  0001 C CNN
-F 3 "" H 10250 4150 60  0000 C CNN
-	1    10250 4150
-	1    0    0    -1  
-$EndComp
-$Comp
-L DS18B20 U13
-U 1 1 57960A29
-P 10850 4150
-F 0 "U13" H 10700 4750 60  0000 C CNN
-F 1 "DS18B20" H 10850 4650 60  0000 C CNN
-F 2 "TO_SOT_Packages_THT:TO-92_Inline_Narrow_Oval" H 10850 4150 60  0001 C CNN
-F 3 "" H 10850 4150 60  0000 C CNN
-	1    10850 4150
-	1    0    0    -1  
-$EndComp
-$Comp
-L GND #PWR040
-U 1 1 57960A2F
-P 10100 4300
-F 0 "#PWR040" H 10100 4050 50  0001 C CNN
-F 1 "GND" H 10100 4150 50  0000 C CNN
-F 2 "" H 10100 4300 50  0000 C CNN
-F 3 "" H 10100 4300 50  0000 C CNN
-	1    10100 4300
-	1    0    0    -1  
-$EndComp
-$Comp
-L GND #PWR041
-U 1 1 57960A35
-P 10700 4300
-F 0 "#PWR041" H 10700 4050 50  0001 C CNN
-F 1 "GND" H 10700 4150 50  0000 C CNN
-F 2 "" H 10700 4300 50  0000 C CNN
-F 3 "" H 10700 4300 50  0000 C CNN
-	1    10700 4300
-	1    0    0    -1  
-$EndComp
-$Comp
-L +5V #PWR042
-U 1 1 57960A3B
-P 10400 4200
-F 0 "#PWR042" H 10400 4050 50  0001 C CNN
-F 1 "+5V" H 10400 4340 50  0000 C CNN
-F 2 "" H 10400 4200 50  0000 C CNN
-F 3 "" H 10400 4200 50  0000 C CNN
-	1    10400 4200
-	1    0    0    -1  
-$EndComp
-$Comp
-L +5V #PWR043
-U 1 1 57960A41
-P 11000 4200
-F 0 "#PWR043" H 11000 4050 50  0001 C CNN
-F 1 "+5V" H 11000 4340 50  0000 C CNN
-F 2 "" H 11000 4200 50  0000 C CNN
-F 3 "" H 11000 4200 50  0000 C CNN
-	1    11000 4200
-	1    0    0    -1  
-$EndComp
-Text Label 10200 4350 0    60   ~ 0
+Text Label 8800 4600 0    60   ~ 0
 TS0
-Text Label 10800 4350 0    60   ~ 0
+Text Label 9450 4600 0    60   ~ 0
 TS1
-Wire Wire Line
-	10700 4200 10700 4300
-Wire Wire Line
-	10100 4200 10100 4300
-Wire Wire Line
-	11000 4200 10900 4200
-Wire Wire Line
-	10400 4200 10300 4200
-Wire Wire Line
-	10200 4200 10200 4350
-Wire Wire Line
-	10800 4200 10800 4350
-Text Label 2650 3250 0    60   ~ 0
+Text Label 2650 2950 0    60   ~ 0
 TS0
-Text Label 3550 3250 0    60   ~ 0
+Text Label 3550 2950 0    60   ~ 0
 TS1
 Text Label 5750 6300 0    60   ~ 0
 PHG
@@ -1628,20 +1550,6 @@ F 3 "" H 3550 3350 50  0000 C CNN
 $EndComp
 Wire Wire Line
 	3550 3350 3450 3350
-Wire Notes Line
-	10000 3250 10000 4550
-Wire Notes Line
-	8900 4550 11100 4550
-Wire Notes Line
-	11100 4550 11100 3250
-Wire Notes Line
-	11100 3250 8900 3250
-Wire Notes Line
-	8900 3250 8900 4550
-Text Notes 9050 3350 0    60   ~ 0
-MOUNT ON MASTER
-Text Notes 10150 3350 0    60   ~ 0
-MOUNT ON SLAVE
 $Comp
 L Battery BT1
 U 1 1 57965A42
@@ -1757,17 +1665,11 @@ Wire Wire Line
 	4100 2150 3850 2150
 Wire Wire Line
 	4100 2250 3850 2250
-Text Label 3850 2050 0    60   ~ 0
-MEAS
 Text Label 3850 2150 0    60   ~ 0
+MEAS
+Text Label 3850 2050 0    60   ~ 0
 CAL0
 Text Label 3850 2250 0    60   ~ 0
-CAL1
-Text Label 8150 2700 0    60   ~ 0
-MEAS
-Text Label 11000 2700 0    60   ~ 0
-CAL0
-Text Label 11000 2400 0    60   ~ 0
 CAL1
 $Comp
 L C C1
@@ -1799,10 +1701,6 @@ Text Label 5750 4000 0    60   ~ 0
 AREF
 Text Label 10950 2000 0    60   ~ 0
 PHG
-Text Label 11050 2300 0    60   ~ 0
-TS0
-Text Label 11050 2200 0    60   ~ 0
-TS1
 $Comp
 L CONN_01X02 P1
 U 1 1 5796AE27
@@ -2078,4 +1976,34 @@ F 3 "" H 6950 4950 50  0000 C CNN
 	1    6950 4950
 	1    0    0    -1  
 $EndComp
+$Comp
+L CONN_01X03 P?
+U 1 1 57B3E354
+P 9100 4800
+F 0 "P?" H 9100 5000 50  0000 C CNN
+F 1 "CONN_01X03" V 9200 4800 50  0000 C CNN
+F 2 "" H 9100 4800 50  0000 C CNN
+F 3 "" H 9100 4800 50  0000 C CNN
+	1    9100 4800
+	0    1    1    0   
+$EndComp
+$Comp
+L CONN_01X03 P?
+U 1 1 57B3E4BD
+P 9700 4800
+F 0 "P?" H 9700 5000 50  0000 C CNN
+F 1 "CONN_01X03" V 9800 4800 50  0000 C CNN
+F 2 "" H 9700 4800 50  0000 C CNN
+F 3 "" H 9700 4800 50  0000 C CNN
+	1    9700 4800
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	9800 4600 9850 4600
+Wire Wire Line
+	9600 4600 9450 4600
+Wire Wire Line
+	9200 4600 9250 4600
+Wire Wire Line
+	9000 4600 8800 4600
 $EndSCHEMATC
