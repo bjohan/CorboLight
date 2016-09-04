@@ -45,50 +45,6 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Comp
-L CONN_1 P8
-U 1 1 551D9380
-P 10800 650
-F 0 "P8" H 10880 650 40  0000 L CNN
-F 1 "CONN_1" H 10800 705 30  0001 C CNN
-F 2 "Socket_Arduino_Nano:1pin_Nano" H 10800 650 60  0001 C CNN
-F 3 "" H 10800 650 60  0000 C CNN
-	1    10800 650 
-	0    -1   -1   0   
-$EndComp
-$Comp
-L CONN_1 P9
-U 1 1 551D9414
-P 10900 650
-F 0 "P9" H 10980 650 40  0000 L CNN
-F 1 "CONN_1" H 10900 705 30  0001 C CNN
-F 2 "Socket_Arduino_Nano:1pin_Nano" H 10900 650 60  0001 C CNN
-F 3 "" H 10900 650 60  0000 C CNN
-	1    10900 650 
-	0    -1   -1   0   
-$EndComp
-$Comp
-L CONN_1 P10
-U 1 1 551D9432
-P 11000 650
-F 0 "P10" H 11080 650 40  0000 L CNN
-F 1 "CONN_1" H 11000 705 30  0001 C CNN
-F 2 "Socket_Arduino_Nano:1pin_Nano" H 11000 650 60  0001 C CNN
-F 3 "" H 11000 650 60  0000 C CNN
-	1    11000 650 
-	0    -1   -1   0   
-$EndComp
-$Comp
-L CONN_1 P11
-U 1 1 551D9466
-P 11100 650
-F 0 "P11" H 11180 650 40  0000 L CNN
-F 1 "CONN_1" H 11100 705 30  0001 C CNN
-F 2 "Socket_Arduino_Nano:1pin_Nano" H 11100 650 60  0001 C CNN
-F 3 "" H 11100 650 60  0000 C CNN
-	1    11100 650 
-	0    -1   -1   0   
-$EndComp
-$Comp
 L CONN_15 P6
 U 1 1 551D9496
 P 9625 2000
@@ -110,10 +66,6 @@ F 3 "" H 10000 2050 60  0000 C CNN
 	1    10000 2000
 	-1   0    0    -1  
 $EndComp
-NoConn ~ 10800 800 
-NoConn ~ 10900 800 
-NoConn ~ 11000 800 
-NoConn ~ 11100 800 
 Text Label 8575 1300 0    60   ~ 0
 1(Tx)
 Text Label 8575 1400 0    60   ~ 0
@@ -193,8 +145,6 @@ F 3 "" H 10425 2875 60  0000 C CNN
 	1    10425 2875
 	1    0    0    -1  
 $EndComp
-Text Notes 10850 950  0    60   ~ 0
-Holes
 Text Notes 8500 575  0    60   ~ 0
 Shield for Arduino Nano
 Text Label 10425 1125 1    60   ~ 0
@@ -1196,10 +1146,6 @@ Wire Wire Line
 	10425 1300 10350 1300
 Wire Wire Line
 	10350 1600 10550 1600
-Wire Notes Line
-	10700 475  10700 975 
-Wire Notes Line
-	10700 975  11225 975 
 Wire Wire Line
 	10550 1600 10550 1125
 Wire Wire Line
@@ -1563,7 +1509,6 @@ Wire Wire Line
 	6150 4400 6150 4500
 NoConn ~ 8550 1300
 NoConn ~ 8550 1400
-NoConn ~ 10950 800 
 Connection ~ 1500 1450
 $Comp
 L PWR_FLAG #FLG041
@@ -1738,41 +1683,6 @@ F 3 "" H 4300 2300 50  0000 C CNN
 	1    4300 2300
 	1    0    0    -1  
 $EndComp
-$Comp
-L CONN_01X06 P3
-U 1 1 5796C595
-P 4300 1400
-F 0 "P3" H 4300 1750 50  0000 C CNN
-F 1 "CONN_01X06" V 4400 1400 50  0000 C CNN
-F 2 "Connect:PINHEAD1-6" H 4300 1400 50  0001 C CNN
-F 3 "" H 4300 1400 50  0000 C CNN
-	1    4300 1400
-	1    0    0    -1  
-$EndComp
-Text Label 3450 1450 0    60   ~ 0
-O_MEAS_PROBE
-Text Label 3450 1550 0    60   ~ 0
-O_CAL0_PROBE
-Text Label 3450 1650 0    60   ~ 0
-O_CAL1_PROBE
-Wire Wire Line
-	3450 1650 4100 1650
-Wire Wire Line
-	3450 1550 4100 1550
-Wire Wire Line
-	3450 1450 4100 1450
-Wire Wire Line
-	4100 1150 3450 1150
-Wire Wire Line
-	4100 1250 3450 1250
-Wire Wire Line
-	4100 1350 3450 1350
-Text Label 3450 1150 0    60   ~ 0
-MEAS_PROBE
-Text Label 3450 1250 0    60   ~ 0
-CAL0_PROBE
-Text Label 3450 1350 0    60   ~ 0
-CAL1_PROBE
 Wire Wire Line
 	5350 1600 4700 1600
 Wire Wire Line

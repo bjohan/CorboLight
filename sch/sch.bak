@@ -129,8 +129,6 @@ F 3 "" H 9200 2875 60  0000 C CNN
 	1    9200 2875
 	1    0    0    -1  
 $EndComp
-Text Label 8575 1500 0    60   ~ 0
-Reset
 Text Label 8575 1700 0    60   ~ 0
 2
 Text Label 8575 1800 0    60   ~ 0
@@ -195,8 +193,6 @@ F 3 "" H 10425 2875 60  0000 C CNN
 	1    10425 2875
 	1    0    0    -1  
 $EndComp
-Text Label 10750 1500 0    60   ~ 0
-Reset
 Text Notes 10850 950  0    60   ~ 0
 Holes
 Text Notes 8500 575  0    60   ~ 0
@@ -2008,4 +2004,8 @@ Wire Wire Line
 	9000 4600 8800 4600
 NoConn ~ 8550 1500
 NoConn ~ 11100 1500
+Text Notes 8650 1500 0    60   ~ 0
+Reset
+Text Notes 10800 1500 0    60   ~ 0
+Reset
 $EndSCHEMATC
