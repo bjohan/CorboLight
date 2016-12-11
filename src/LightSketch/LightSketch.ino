@@ -55,15 +55,29 @@ void load(){
 	setDim6(EEPROM.read(6));
 }
 
+void setAll(int level){
+	setDim1(level);
+	setDim2(level);
+	setDim3(level);
+	setDim4(level);
+	setDim5(level);
+	setDim6(level);
+}
+
 //ANA_OUT("setPoint", "C", "0", "300", 0, 300, setSetPoint ,setPointTemperature);
+ANA_IN("Temperature", "C", "-128", "127.93750", -2048, 2047, tempWidget);
+ANA_IN("Acidity", "pH", "0", "1023", 0, 1023, phWidget);
 ANA_OUT("Dim650nm", "%", "0", "100", 0, 255, setDim1 ,dim1Widget);
 ANA_OUT("Dim625nm", "%", "0", "100", 0, 255, setDim2 ,dim2Widget);
 ANA_OUT("Dim465nm", "%", "0", "100", 0, 255, setDim3 ,dim3Widget);
 ANA_OUT("Dim445nm", "%", "0", "100", 0, 255, setDim4 ,dim4Widget);
 ANA_OUT("Dim425nm", "%", "0", "100", 0, 255, setDim5 ,dim5Widget);
 ANA_OUT("Dim360nm", "%", "0", "100", 0, 255, setDim6 ,dim6Widget);
+DIG_IN("Overheated", overheatedWidget);
 EVENT_OUT("Save", save, saveWidget);
 EVENT_OUT("Load", load, loadWidget);
+
+
 
 //ANA_IN("temperature", "C", "0", "450", 0, 300, temperature);
 const CorbomiteEntry last PROGMEM = {LASTTYPE, "", 0};
@@ -74,6 +88,8 @@ const CorbomiteEntry initcmd PROGMEM =
 
 const CorbomiteEntry * const entries[] PROGMEM = {
 	//&setPointTemperature,
+	&tempWidget,
+	&phWidget,
 	&dim1Widget,
 	&dim2Widget,
 	&dim3Widget,
@@ -82,6 +98,7 @@ const CorbomiteEntry * const entries[] PROGMEM = {
 	&dim6Widget,
 	&saveWidget,
 	&loadWidget,
+	&overheatedWidget,
 //        &temperature,
 	&initcmd, &last
 };
@@ -154,7 +171,7 @@ uint8_t readByte(int pin)
 void setup()
 {
   pinMode(ch1TempPin, INPUT);
-  Serial.begin(115200);
+  Serial.begin(19200);
   //setDim1(0);	
   //setDim2(0);	
   //setDim3(0);	
@@ -179,12 +196,12 @@ void printValue(char *name, float value)
 }
 
 
-int readDallas(int pin){
+uint32_t readDallas(int pin){
 	static uint8_t state = 0;
 	static uint32_t t0 = 0;
 	static uint8_t r = 0;
 	static uint16_t t = 0;
-	static uint16_t tr = 0;
+	static uint32_t tr = 0;
 	switch(state){
 		case 0:
 			initDallas(pin);
@@ -237,10 +254,26 @@ int readDallas(int pin){
 
 
 void loop()
-{
-  Serial.print(float(readDallas(7))/16.0);
-  Serial.println("DERP");
-  commandLine();
+{ 
+	static uint32_t t=0;
+	t = readDallas(7);
+	//Serial.print(float(readDallas(7))/16.0);
+	//Serial.println("DERP");
+  
+	transmitAnalogIn(&tempWidget, t);
+	transmitAnalogIn(&phWidget, analogRead(4));
+	//Serial.print("#Temperature ");
+	//Serial.print(t);
+	//Serial.println(" ");
+	commandLine();
+	if(t > 50*16){
+		transmitDigitalIn(&overheatedWidget, 1);
+		setAll(0);
+	} else {
+		transmitDigitalIn(&overheatedWidget, 0);
+	}
+
+
   if(not inited){
 	  load();
 	  inited = true;

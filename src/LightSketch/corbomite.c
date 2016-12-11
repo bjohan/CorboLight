@@ -379,7 +379,7 @@ void transmitAnalogIn(const CorbomiteEntry *e, int32_t s)
 	//transmitStringP(fs);
 	//transmitStringP(tmpEntry.id);
 	//transmitStringP(sp);
-	*e->data->analogInData.lastRaw = s;
+	//*e->data->analogInData.lastRaw = s;
 	transmitProlog(e);
 	transmitInt(s);
 	transmitStringP(fe);
