@@ -195,14 +195,14 @@ rotate([180,0,0]){
     bx = pcbX+2*wall+6;
     by = pcbY+2*wall+6;
     bz = H+wall;
-
+/*
 difference(){
     //translate([0, 0, 0]){
     cube([bx+1, by+1, bz]);
     translate([0.5, 0.5,0])
         cube([bx, by, bz]);
     //}
-}}
+}*/}
 //airHolesShort();
 //airHoles();
 
