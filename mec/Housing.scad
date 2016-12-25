@@ -203,6 +203,24 @@ module pcbClamp1(){
         }
         translate([0,0,17])
                 cube([30, wall, 18]);
+        difference(){
+            //translate([0,0,25])
+            //    cube([30,3,20]);
+            translate([15,wall,40]){
+                rotate([90,0,0]){
+                    cylinder(wall,8,8);
+                }
+            }
+            
+            translate([15,3,40]){
+                rotate([90,0,0]){
+                    
+                    translate([0,0,-1]){
+                        cylinder(5,3,3);
+                    }
+                }
+            }
+        }
     }
 }
 
@@ -313,6 +331,8 @@ module boxAssy(){
 module pcbAssy(){
     pcbWithComponents();
 }
+
+//printClamps();
 clampsAssy();
 boxAssy();
 //pcbAssy();
