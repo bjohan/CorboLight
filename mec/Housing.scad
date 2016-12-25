@@ -161,15 +161,15 @@ module airHolesLong(){
 }
 
 module screwHoles(){
-        translate([15, 40, 20])
+        translate([15, -20, 20])
             rotate([-90,0,0])
                 cylinder(100,3/2,3/2);
-        translate([pcbX-15, 40, 20])
+        translate([pcbX-15, -20, 20])
             rotate([-90,0,0])
                 cylinder(100,3/2,3/2);
-        translate([pcbX/2, 40, 5])
-            rotate([-90,0,0])
-                cylinder(100,3/2,3/2);
+        //translate([pcbX/2, 0, 5])
+        //    rotate([-90,0,0])
+        //        cylinder(100,3/2,3/2);
 
 }
 
@@ -187,11 +187,29 @@ module airGuide(){
     
 }
 
+
+module pcbClamp(){
+    translate([-2*wall, -2*wall, -wall]){
+        difference(){
+            cube([30,30,30+3*wall]);
+            translate([7,7,-1])
+                cube([30,30,30+3*wall+2]);
+            translate([wall, wall, wall])
+                cube([30,30,30]);
+            translate([-wall, 10, wall])
+                cube([30,30,30]);
+            translate([10, -wall, wall])
+                cube([30,30,30]);
+        }
+    }
+}
 //pcbWithComponents();
 rotate([180,0,0]){
-    translate([wall+3, wall+3, 0])
-    boxWithComponentHoles();
-
+//    translate([wall+3, wall+3, 0]){
+    //boxWithComponentHoles();
+    pcbClamp();
+    //pcbWithComponents();
+//    }
     bx = pcbX+2*wall+6;
     by = pcbY+2*wall+6;
     bz = H+wall;
