@@ -188,40 +188,131 @@ module airGuide(){
 }
 
 
-module pcbClamp(){
+module pcbClamp1(){
     translate([-2*wall, -2*wall, -wall]){
         difference(){
-            cube([30,30,30+3*wall]);
+            cube([30,20,30+3*wall]);
             translate([7,7,-1])
                 cube([30,30,30+3*wall+2]);
             translate([wall, wall, wall])
-                cube([30,30,30]);
+                cube([30,30,30+wall]);
             translate([-wall, 10, wall])
                 cube([30,30,30]);
             translate([10, -wall, wall])
                 cube([30,30,30]);
         }
+        translate([0,0,17])
+                cube([30, wall, 18]);
     }
 }
-//pcbWithComponents();
-rotate([180,0,0]){
-//    translate([wall+3, wall+3, 0]){
-    //boxWithComponentHoles();
-    pcbClamp();
-    //pcbWithComponents();
-//    }
-    bx = pcbX+2*wall+6;
-    by = pcbY+2*wall+6;
-    bz = H+wall;
-/*
-difference(){
-    //translate([0, 0, 0]){
-    cube([bx+1, by+1, bz]);
-    translate([0.5, 0.5,0])
-        cube([bx, by, bz]);
-    //}
-}*/}
-//airHolesShort();
-//airHoles();
 
-//pcbWithComponents();
+module pcbClamp2(){
+    translate([0,50,0])
+    mirror([0,1,0]){
+        pcbClamp1();
+    }
+}
+
+module pcbClamp3(){
+    translate([100,0,0])
+        mirror([1,0,0])
+            pcbClamp2();
+}
+
+module pcbClamp4(){
+    translate([0,50,0])
+        mirror([0,1,0])
+            pcbClamp3();
+}
+
+module pcbClamp1WithHoles(){
+    difference(){
+        pcbClamp1();
+        screwHoles();
+    }
+}
+
+module pcbClamp2WithHoles(){
+    difference(){
+        pcbClamp2();
+        screwHoles();
+    }
+}
+
+module pcbClamp3WithHoles(){
+    difference(){
+        pcbClamp3();
+        screwHoles();
+    }
+}
+
+module pcbClamp4WithHoles(){
+    difference(){
+        pcbClamp4();
+        screwHoles();
+        pcbWithComponents();
+    }
+}
+
+
+module printBox(){
+    rotate([180,0,0]){
+        translate([wall+3, wall+3, -32]){
+            boxWithComponentHoles();
+        }
+    }
+}
+
+module printClamp1(){
+    rotate([90,0,0])
+        translate([2*wall, 2*wall, wall])
+            pcbClamp1WithHoles();
+}
+
+module printClamp2(){
+    rotate([-90,0,0])
+        translate([2*wall, -50-2*wall, wall])
+            pcbClamp2WithHoles();
+}
+
+module printClamp3(){
+    rotate([-90,0,0])
+        translate([2*wall, -50-2*wall, wall])
+            pcbClamp3WithHoles();
+}
+
+module printClamp4(){
+    rotate([90,0,0])
+        translate([2*wall, 2*wall, wall])
+            pcbClamp4WithHoles();
+}
+
+module printClamps(){
+    translate([0,-2,0])
+        printClamp1();
+    printClamp2();
+    translate([-110,0,0]){
+        printClamp3();
+        translate([0,-2,0])
+            printClamp4();
+    }
+}
+
+module clampsAssy(){
+    pcbClamp1WithHoles();
+    pcbClamp2WithHoles();
+    pcbClamp3WithHoles();
+    pcbClamp4WithHoles();
+}
+
+module boxAssy(){
+    boxWithComponentHoles();
+    
+}
+
+module pcbAssy(){
+    pcbWithComponents();
+}
+clampsAssy();
+boxAssy();
+//pcbAssy();
